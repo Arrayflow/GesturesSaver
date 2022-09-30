@@ -25,6 +25,7 @@ import org.pytorch.MemoryFormat
 import org.pytorch.Module
 import org.pytorch.torchvision.TensorImageUtils
 import java.io.*
+import java.lang.Long
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -44,10 +45,9 @@ class ActivityMain : AppCompatActivity(), TouchUpEvent {
     lateinit var gesturebitmap: Bitmap
     lateinit var gestureView: GestureView
     private val timeFormat = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS")
-    private val newBitmap by lazy { Bitmap.createBitmap(224, 224, Bitmap.Config.ARGB_8888) }
-
     private lateinit var curGesture: Bitmap
     var paintWidth = 3
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -167,9 +167,6 @@ class ActivityMain : AppCompatActivity(), TouchUpEvent {
                     }
                     else -> ""
                 }
-                //申请文件存储权限
-                //换路径
-//                this.getExternalFilesDir()
 
                 if (ImageProcess.saveGesturebitmap(
                         fileSavedPath + pathInfix,
@@ -187,7 +184,7 @@ class ActivityMain : AppCompatActivity(), TouchUpEvent {
                 e.printStackTrace()
             }
             gestureView.clear()
-            //设置画笔颜色(可以不设置--默认画笔宽度10,画笔颜色黑,背景颜色白)
+
             gestureView.setBackgroundColor(Color.BLACK)
             gestureView.setPaintColor(Color.WHITE)
             gestureView.setPaintWidth(paintWidth)

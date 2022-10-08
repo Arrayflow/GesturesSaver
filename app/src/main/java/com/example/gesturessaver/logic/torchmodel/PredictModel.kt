@@ -13,6 +13,10 @@ object PredictModel {
 
     private lateinit var module: Module
 
+    init {
+        initMoudle()
+    }
+
     fun initMoudle() {
         try {
             module = Module.load(ImageProcess.assetFilePath(GesturesSaverApplication.context, "gesturesRec_best.pt"))
@@ -24,7 +28,7 @@ object PredictModel {
 
     fun predict(gesturebitmap: Bitmap): Int {
 
-        initMoudle()
+
 
         val t1 = System.currentTimeMillis()
 

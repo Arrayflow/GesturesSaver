@@ -33,7 +33,7 @@ class ActivityMain : AppCompatActivity(), ListenTouchEvent, TouchUpEvent, TouchU
     lateinit var gestureView: GestureView
     private val timeFormat = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS")
     private val newBitmap by lazy { Bitmap.createBitmap(224, 224, Bitmap.Config.ARGB_8888) }
-
+    private val test = 1
     var module: Module? = null
     var gestureName: String = ""
     private lateinit var curGesture: Bitmap
